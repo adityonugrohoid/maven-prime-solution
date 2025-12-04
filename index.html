@@ -38,11 +38,11 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#2A9D8F', // Teal
-                        secondary: '#264653', // Dark Blue/Green
-                        accent: '#E9C46A', // Gold/Yellow
-                        neutral: '#F4F1DE', // Beige/Cream
-                        dark: '#1D1D1D',
+                        primary: '#D4AF37', // Luxury Gold
+                        secondary: '#111111', // Rich Black
+                        accent: '#FFD700', // Bright Gold
+                        neutral: '#1A1A1A', // Dark Gray
+                        light: '#F5F5F5', // Off-white
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -110,25 +110,26 @@
     </script>
 </head>
 
-<body class="bg-neutral text-gray-800 font-sans antialiased" x-data="{ mobileMenuOpen: false }">
+<body class="bg-secondary text-light font-sans antialiased" x-data="{ mobileMenuOpen: false }">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300">
+    <nav
+        class="fixed w-full z-50 bg-secondary/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-white/10">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-serif font-bold text-secondary">Maven Prime</a>
+            <a href="#" class="text-2xl font-serif font-bold text-primary">Maven Prime</a>
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8">
-                <a href="#services" class="hover:text-primary transition">Services</a>
-                <a href="#portfolio" class="hover:text-primary transition">Portfolio</a>
-                <a href="#about" class="hover:text-primary transition">About</a>
+                <a href="#services" class="text-light hover:text-primary transition">Services</a>
+                <a href="#portfolio" class="text-light hover:text-primary transition">Portfolio</a>
+                <a href="#about" class="text-light hover:text-primary transition">About</a>
                 <a href="#contact"
-                    class="px-5 py-2 bg-primary text-white rounded-full hover:bg-secondary transition shadow-lg">Contact
+                    class="px-5 py-2 bg-primary text-secondary font-bold rounded-full hover:bg-accent transition shadow-lg">Contact
                     Us</a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-secondary focus:outline-none">
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-primary focus:outline-none">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                     </path>
@@ -137,11 +138,14 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-white border-t absolute w-full">
+        <div x-show="mobileMenuOpen" x-transition
+            class="md:hidden bg-secondary border-t border-white/10 absolute w-full">
             <div class="flex flex-col p-6 space-y-4">
-                <a href="#services" @click="mobileMenuOpen = false" class="text-lg hover:text-primary">Services</a>
-                <a href="#portfolio" @click="mobileMenuOpen = false" class="text-lg hover:text-primary">Portfolio</a>
-                <a href="#about" @click="mobileMenuOpen = false" class="text-lg hover:text-primary">About</a>
+                <a href="#services" @click="mobileMenuOpen = false"
+                    class="text-lg text-light hover:text-primary">Services</a>
+                <a href="#portfolio" @click="mobileMenuOpen = false"
+                    class="text-lg text-light hover:text-primary">Portfolio</a>
+                <a href="#about" @click="mobileMenuOpen = false" class="text-lg text-light hover:text-primary">About</a>
                 <a href="#contact" @click="mobileMenuOpen = false" class="text-lg text-primary font-bold">Contact Us</a>
             </div>
         </div>
@@ -156,22 +160,22 @@
                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
             </iframe>
         </div>
-        <div class="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-neutral z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-secondary z-0"></div>
 
         <div class="relative z-10 text-center px-6 max-w-4xl mt-16">
-            <h1 class="text-5xl md:text-7xl font-serif font-bold text-secondary mb-6 leading-tight">
-                Elevate Your Space in <span class="text-primary">Sukolilo</span>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-primary mb-6 leading-tight">
+                Elevate Your Space in <span class="text-white">Sukolilo</span>
             </h1>
-            <p class="text-xl md:text-2xl text-gray-600 mb-10 font-light">
+            <p class="text-xl md:text-2xl text-gray-300 mb-10 font-light">
                 Premium interior design solutions tailored to your lifestyle.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
                 <a href="#portfolio"
-                    class="px-8 py-4 bg-secondary text-white rounded-full text-lg hover:bg-primary transition shadow-xl transform hover:-translate-y-1">
+                    class="px-8 py-4 bg-primary text-secondary font-bold rounded-full text-lg hover:bg-accent transition shadow-xl transform hover:-translate-y-1">
                     View Portfolio
                 </a>
                 <a href="#contact"
-                    class="px-8 py-4 bg-white text-secondary border-2 border-secondary rounded-full text-lg hover:bg-gray-50 transition">
+                    class="px-8 py-4 bg-transparent text-primary border-2 border-primary rounded-full text-lg hover:bg-primary hover:text-secondary transition">
                     Book Consultation
                 </a>
             </div>
@@ -179,41 +183,44 @@
     </header>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
+    <section id="services" class="py-20 bg-neutral">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-serif font-bold text-secondary mb-4">Our Services</h2>
+                <h2 class="text-4xl font-serif font-bold text-primary mb-4">Our Services</h2>
                 <div class="w-24 h-1 bg-primary mx-auto"></div>
             </div>
 
             <div class="grid md:grid-cols-3 gap-10">
                 <!-- Service 1 -->
-                <div class="p-8 bg-neutral rounded-2xl hover:shadow-xl transition duration-300 group">
+                <div
+                    class="p-8 bg-secondary rounded-2xl hover:shadow-xl transition duration-300 group border border-white/5">
                     <div
-                        class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-3xl shadow-sm group-hover:scale-110 transition">
+                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 text-3xl shadow-sm group-hover:scale-110 transition border border-white/10">
                         🏠</div>
-                    <h3 class="text-2xl font-bold text-secondary mb-4">Residential Design</h3>
-                    <p class="text-gray-600">Transforming houses into homes. From cozy apartments to luxury estates, we
+                    <h3 class="text-2xl font-bold text-primary mb-4">Residential Design</h3>
+                    <p class="text-gray-400">Transforming houses into homes. From cozy apartments to luxury estates, we
                         craft living spaces that reflect your personality.</p>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="p-8 bg-neutral rounded-2xl hover:shadow-xl transition duration-300 group">
+                <div
+                    class="p-8 bg-secondary rounded-2xl hover:shadow-xl transition duration-300 group border border-white/5">
                     <div
-                        class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-3xl shadow-sm group-hover:scale-110 transition">
+                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 text-3xl shadow-sm group-hover:scale-110 transition border border-white/10">
                         🏢</div>
-                    <h3 class="text-2xl font-bold text-secondary mb-4">Commercial Spaces</h3>
-                    <p class="text-gray-600">Functional and inspiring designs for offices, retail stores, and cafes that
+                    <h3 class="text-2xl font-bold text-primary mb-4">Commercial Spaces</h3>
+                    <p class="text-gray-400">Functional and inspiring designs for offices, retail stores, and cafes that
                         enhance productivity and customer experience.</p>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="p-8 bg-neutral rounded-2xl hover:shadow-xl transition duration-300 group">
+                <div
+                    class="p-8 bg-secondary rounded-2xl hover:shadow-xl transition duration-300 group border border-white/5">
                     <div
-                        class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-3xl shadow-sm group-hover:scale-110 transition">
+                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 text-3xl shadow-sm group-hover:scale-110 transition border border-white/10">
                         🖥️</div>
-                    <h3 class="text-2xl font-bold text-secondary mb-4">3D Rendering</h3>
-                    <p class="text-gray-600">Photorealistic 3D visualizations to help you see the final result before
+                    <h3 class="text-2xl font-bold text-primary mb-4">3D Rendering</h3>
+                    <p class="text-gray-400">Photorealistic 3D visualizations to help you see the final result before
                         construction begins. Precision in every detail.</p>
                 </div>
             </div>
@@ -221,11 +228,11 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-neutral/30">
+    <section id="portfolio" class="py-20 bg-secondary">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-serif font-bold text-secondary mb-4">Selected Works</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">A curation of our finest interior design projects across
+                <h2 class="text-4xl font-serif font-bold text-primary mb-4">Selected Works</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">A curation of our finest interior design projects across
                     Surabaya.</p>
             </div>
 
@@ -250,32 +257,32 @@
 
             <div class="text-center mt-12">
                 <button
-                    class="px-8 py-3 border border-secondary text-secondary rounded-full hover:bg-secondary hover:text-white transition">Load
+                    class="px-8 py-3 border border-primary text-primary rounded-full hover:bg-primary hover:text-secondary transition font-bold">Load
                     More</button>
             </div>
         </div>
     </section>
 
     <!-- About & Contact Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-20 bg-neutral">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row gap-16 items-center">
                 <!-- About Text -->
                 <div class="lg:w-1/2">
-                    <h2 class="text-4xl font-serif font-bold text-secondary mb-6">About Maven Prime</h2>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
+                    <h2 class="text-4xl font-serif font-bold text-primary mb-6">About Maven Prime</h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
                         Located in the heart of Sukolilo, Surabaya, Maven Prime Solution is more than just a design
                         studio. We are a team of passionate architects and designers dedicated to elevating the way you
                         live and work.
                     </p>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
+                    <p class="text-gray-300 mb-8 leading-relaxed">
                         With a focus on sustainable materials and modern aesthetics, we have successfully delivered over
                         50+ projects in East Java. Our commitment to quality and client satisfaction is unwavering.
                     </p>
 
-                    <div class="bg-neutral p-6 rounded-xl border-l-4 border-primary">
-                        <h4 class="font-bold text-secondary mb-2">Visit Our Studio</h4>
-                        <p class="text-gray-700">Jl. Sukolilo Sejahtera I No.28, Keputih, Kec. Sukolilo<br>Surabaya,
+                    <div class="bg-secondary p-6 rounded-xl border-l-4 border-primary border border-white/5">
+                        <h4 class="font-bold text-primary mb-2">Visit Our Studio</h4>
+                        <p class="text-gray-400">Jl. Sukolilo Sejahtera I No.28, Keputih, Kec. Sukolilo<br>Surabaya,
                             Jawa Timur 60111</p>
                         <a href="https://maps.app.goo.gl/u8CCBJiJ9ZbAAm4t5" target="_blank"
                             class="text-primary font-bold mt-2 inline-block hover:underline">Get Directions →</a>
@@ -284,35 +291,35 @@
 
                 <!-- Contact Form -->
                 <div id="contact"
-                    class="lg:w-1/2 w-full bg-secondary text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+                    class="lg:w-1/2 w-full bg-secondary text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden border border-white/10">
                     <div
                         class="absolute top-0 right-0 w-32 h-32 bg-primary rounded-full blur-3xl opacity-20 -mr-10 -mt-10">
                     </div>
 
-                    <h3 class="text-3xl font-serif font-bold mb-6">Start Your Project</h3>
+                    <h3 class="text-3xl font-serif font-bold mb-6 text-primary">Start Your Project</h3>
 
-                    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                    <form action="https://formspree.io/f/xpwvlzqw" method="POST">
                         <div class="space-y-4">
                             <div>
                                 <label class="block text-sm text-gray-300 mb-1">Name</label>
                                 <input type="text" name="name"
-                                    class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-primary focus:outline-none text-white placeholder-gray-400"
+                                    class="w-full px-4 py-3 rounded-lg bg-neutral border border-white/20 focus:border-primary focus:outline-none text-white placeholder-gray-500"
                                     placeholder="Your Name" required>
                             </div>
                             <div>
                                 <label class="block text-sm text-gray-300 mb-1">Email</label>
                                 <input type="email" name="email"
-                                    class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-primary focus:outline-none text-white placeholder-gray-400"
+                                    class="w-full px-4 py-3 rounded-lg bg-neutral border border-white/20 focus:border-primary focus:outline-none text-white placeholder-gray-500"
                                     placeholder="john@example.com" required>
                             </div>
                             <div>
                                 <label class="block text-sm text-gray-300 mb-1">Message</label>
                                 <textarea name="message" rows="4"
-                                    class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-primary focus:outline-none text-white placeholder-gray-400"
+                                    class="w-full px-4 py-3 rounded-lg bg-neutral border border-white/20 focus:border-primary focus:outline-none text-white placeholder-gray-500"
                                     placeholder="Tell us about your project..." required></textarea>
                             </div>
                             <button type="submit"
-                                class="w-full py-4 bg-primary hover:bg-white hover:text-primary text-white font-bold rounded-lg transition duration-300 shadow-lg">
+                                class="w-full py-4 bg-primary hover:bg-white hover:text-primary text-secondary font-bold rounded-lg transition duration-300 shadow-lg">
                                 Send Message
                             </button>
                         </div>
@@ -335,7 +342,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-10">
+    <footer class="bg-black text-white py-10 border-t border-white/10">
         <div class="container mx-auto px-6 text-center">
             <p class="text-2xl font-serif font-bold mb-4">Maven Prime Solution</p>
             <div class="flex justify-center space-x-6 mb-8">
@@ -357,7 +364,7 @@
             x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="opacity-100 translate-y-0 scale-100"
             x-transition:leave-end="opacity-0 translate-y-10 scale-95"
-            class="bg-white rounded-2xl shadow-2xl w-80 md:w-96 mb-4 overflow-hidden border border-gray-100 flex flex-col max-h-[600px]">
+            class="bg-secondary rounded-2xl shadow-2xl w-80 md:w-96 mb-4 overflow-hidden border border-white/10 flex flex-col max-h-[600px]">
 
             <!-- Header -->
             <div class="bg-gradient-to-r from-primary to-secondary p-4 flex justify-between items-center text-white">
@@ -374,10 +381,10 @@
             </div>
 
             <!-- Body -->
-            <div id="chat-body" class="flex-1 p-4 overflow-y-auto bg-gray-50 space-y-4 min-h-[300px]">
+            <div id="chat-body" class="flex-1 p-4 overflow-y-auto bg-neutral space-y-4 min-h-[300px]">
                 <template x-for="(msg, index) in messages" :key="index">
                     <div :class="msg.role === 'user' ? 'flex justify-end' : 'flex justify-start'">
-                        <div :class="msg.role === 'user' ? 'bg-primary text-white rounded-br-none' : 'bg-white border border-gray-200 text-gray-800 rounded-bl-none'"
+                        <div :class="msg.role === 'user' ? 'bg-primary text-secondary font-bold rounded-br-none' : 'bg-secondary border border-white/10 text-gray-200 rounded-bl-none'"
                             class="max-w-[85%] p-3 rounded-2xl shadow-sm text-sm">
 
                             <!-- Text Content -->
@@ -394,7 +401,7 @@
 
                 <!-- Loading Indicator -->
                 <div x-show="isLoading" class="flex justify-start">
-                    <div class="bg-white border border-gray-200 p-3 rounded-2xl rounded-bl-none shadow-sm">
+                    <div class="bg-secondary border border-white/10 p-3 rounded-2xl rounded-bl-none shadow-sm">
                         <div class="flex space-x-1">
                             <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                             <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s">
@@ -407,13 +414,13 @@
             </div>
 
             <!-- Input Area -->
-            <div class="p-4 bg-white border-t border-gray-100">
+            <div class="p-4 bg-secondary border-t border-white/10">
                 <div class="flex gap-2">
                     <input type="text" x-model="userInput" @keydown.enter="sendMessage"
                         placeholder="Describe your dream room..."
-                        class="flex-1 px-4 py-2 bg-gray-100 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary/50">
+                        class="flex-1 px-4 py-2 bg-neutral rounded-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-primary/50 placeholder-gray-500">
                     <button @click="sendMessage" :disabled="isLoading || !userInput.trim()"
-                        class="p-2 bg-primary text-white rounded-full hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed transition">
+                        class="p-2 bg-primary text-secondary rounded-full hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed transition">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>

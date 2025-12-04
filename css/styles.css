@@ -1,5 +1,7 @@
 /* Custom Styles */
-[x-cloak] { display: none !important; }
+[x-cloak] {
+    display: none !important;
+}
 
 /* Smooth Scroll */
 html {
@@ -10,15 +12,18 @@ html {
 ::-webkit-scrollbar {
     width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-    background: #F4F1DE;
+    background: #111111;
 }
+
 ::-webkit-scrollbar-thumb {
-    background: #2A9D8F;
+    background: #D4AF37;
     border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-    background: #21867a;
+    background: #B5952F;
 }
 
 /* Loading Spinner Animation */
@@ -28,21 +33,36 @@ html {
     border-top: 3px solid #2A9D8F;
     width: 24px;
     height: 24px;
-    -webkit-animation: spin 1s linear infinite; /* Safari */
+    -webkit-animation: spin 1s linear infinite;
+    /* Safari */
     animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Chat Bubble Animation */
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
+
 .animate-float {
     animation: float 3s ease-in-out infinite;
 }
