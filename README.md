@@ -26,7 +26,7 @@ maven-prime-solution/
 ├── js/
 │   └── app.js          # Application logic (Alpine.js)
 ├── index.html          # Main entry point
-├── _redirects          # Netlify configuration
+├── .github/workflows/  # GitHub Actions for Pages
 ├── robots.txt          # SEO configuration
 ├── sitemap.xml         # SEO configuration
 └── README.md           # This file
@@ -39,20 +39,19 @@ maven-prime-solution/
 2. Open `index.html` in your browser.
 3. For the best experience, use a local server (e.g., Live Server in VS Code).
 
-### Netlify Deployment
-1. Drag and drop the `maven-prime-solution` folder into Netlify Drop.
-2. The `_redirects` file ensures clean URLs.
-3. Netlify Forms are automatically detected from the `data-netlify="true"` attribute in the contact form.
+### GitHub Pages Deployment
+1. Push the code to a GitHub repository.
+2. Go to **Settings > Secrets and variables > Actions**.
+3. Create a new repository secret named `GEMINI_API_KEY` with your Google Gemini API key.
+4. The included GitHub Action (`.github/workflows/deploy.yml`) will automatically build and deploy the site to GitHub Pages on every push to `main`.
+5. **Note**: You will need to sign up for [Formspree](https://formspree.io/) and replace `YOUR_FORMSPREE_ID` in `index.html` to make the contact form work.
 
 ## AI Agent Configuration
 
 The AI Agent is located in `js/app.js`. 
 
-- **Demo Mode**: By default, it uses a placeholder logic to demonstrate functionality without an API key.
-- **Production Mode**:
-    1. Open `js/app.js`.
-    2. Replace `'YOUR_GEMINI_API_KEY'` with your actual Google Gemini API key.
-    3. Uncomment the API call logic to switch from the demo provider to direct Gemini/Imagen API calls.
+- **Production Mode**: The GitHub Action automatically injects your `GEMINI_API_KEY` secret into the code during deployment.
+- **Local Development**: You can manually replace `YOUR_GEMINI_API_KEY` in `js/app.js` for testing, but **do not commit it**.
 
 ## Credits
 
