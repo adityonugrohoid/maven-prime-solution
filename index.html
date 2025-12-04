@@ -121,6 +121,7 @@
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8">
                 <a href="#services" class="text-light hover:text-primary transition">Services</a>
+                <a href="#ai-playground" class="text-light hover:text-primary transition">AI Playground</a>
                 <a href="#portfolio" class="text-light hover:text-primary transition">Portfolio</a>
                 <a href="#about" class="text-light hover:text-primary transition">About</a>
                 <a href="#contact"
@@ -143,6 +144,8 @@
             <div class="flex flex-col p-6 space-y-4">
                 <a href="#services" @click="mobileMenuOpen = false"
                     class="text-lg text-light hover:text-primary">Services</a>
+                <a href="#ai-playground" @click="mobileMenuOpen = false"
+                    class="text-lg text-light hover:text-primary">AI Playground</a>
                 <a href="#portfolio" @click="mobileMenuOpen = false"
                     class="text-lg text-light hover:text-primary">Portfolio</a>
                 <a href="#about" @click="mobileMenuOpen = false" class="text-lg text-light hover:text-primary">About</a>
@@ -195,8 +198,13 @@
                 <div
                     class="p-8 bg-secondary rounded-2xl hover:shadow-xl transition duration-300 group border border-white/5">
                     <div
-                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 text-3xl shadow-sm group-hover:scale-110 transition border border-white/10">
-                        🏠</div>
+                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition border border-primary/30">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                    </div>
                     <h3 class="text-2xl font-bold text-primary mb-4">Residential Design</h3>
                     <p class="text-gray-400">Transforming houses into homes. From cozy apartments to luxury estates, we
                         craft living spaces that reflect your personality.</p>
@@ -206,8 +214,13 @@
                 <div
                     class="p-8 bg-secondary rounded-2xl hover:shadow-xl transition duration-300 group border border-white/5">
                     <div
-                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 text-3xl shadow-sm group-hover:scale-110 transition border border-white/10">
-                        🏢</div>
+                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition border border-primary/30">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
                     <h3 class="text-2xl font-bold text-primary mb-4">Commercial Spaces</h3>
                     <p class="text-gray-400">Functional and inspiring designs for offices, retail stores, and cafes that
                         enhance productivity and customer experience.</p>
@@ -217,8 +230,13 @@
                 <div
                     class="p-8 bg-secondary rounded-2xl hover:shadow-xl transition duration-300 group border border-white/5">
                     <div
-                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 text-3xl shadow-sm group-hover:scale-110 transition border border-white/10">
-                        🖥️</div>
+                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition border border-primary/30">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
                     <h3 class="text-2xl font-bold text-primary mb-4">3D Rendering</h3>
                     <p class="text-gray-400">Photorealistic 3D visualizations to help you see the final result before
                         construction begins. Precision in every detail.</p>
@@ -250,17 +268,14 @@
             <div class="max-w-4xl mx-auto mb-12">
                 <div class="bg-neutral rounded-2xl p-8 border border-white/10">
                     <label class="block text-primary font-bold mb-3">Describe Your Space</label>
-                    <div class="flex gap-3">
-                        <input type="text" x-model="playgroundInput"
-                            placeholder="e.g., Modern minimalist living room in Surabaya with large windows..."
-                            class="flex-1 px-6 py-4 bg-secondary rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary/50 placeholder-gray-500 border border-white/10">
-                        <button @click="generatePlaygroundDesign"
-                            :disabled="playgroundLoading || !playgroundInput.trim()"
-                            class="px-8 py-4 bg-primary text-secondary font-bold rounded-xl hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed transition shadow-lg">
-                            <span x-show="!playgroundLoading">Generate</span>
-                            <span x-show="playgroundLoading">Generating...</span>
-                        </button>
-                    </div>
+                    <input type="text" x-model="playgroundInput"
+                        placeholder="e.g., Modern minimalist living room in Surabaya with large windows..."
+                        class="w-full px-6 py-4 bg-secondary rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary/50 placeholder-gray-500 border border-white/10 mb-4">
+                    <button @click="generatePlaygroundDesign" :disabled="playgroundLoading || !playgroundInput.trim()"
+                        class="w-full md:w-auto px-8 py-4 bg-primary text-secondary font-bold rounded-xl hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed transition shadow-lg">
+                        <span x-show="!playgroundLoading">Generate</span>
+                        <span x-show="playgroundLoading">Generating...</span>
+                    </button>
                 </div>
             </div>
 
