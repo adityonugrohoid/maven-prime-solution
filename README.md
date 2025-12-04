@@ -1,78 +1,179 @@
-# Maven Prime Solution - AI-Powered Interior Design Portfolio
+# Maven Prime Solution - AI-Enhanced Interior Design Portfolio
 
-Welcome to the repository for **Maven Prime Solution's** official website. This project was developed by **Adityo Nugroho** as a comprehensive portfolio showcase, demonstrating advanced web development capabilities including a custom **AI Design Agent** and an interactive **Sketch-to-Render Playground**.
+A modern, production-ready portfolio website showcasing AI-powered interior design services. Built for Maven Prime Solution, an interior design studio based in Surabaya, Indonesia.
 
-**Client**: Maven Prime Solution (Interior Design Studio, Surabaya)
-**Developer**: Adityo Nugroho
 
-## 🚀 Key Features
+## Project Overview
 
-### 1. **AI Design Agent (Chat)**
-A floating AI assistant powered by **Google Gemini 2.0 Flash** that helps visitors brainstorm design ideas.
-- **Contextual Understanding**: Discusses interior styles, color palettes, and layouts.
-- **Image Generation**: Generates conceptual sketches and photorealistic renders directly in the chat.
-- **Smart Suggestions**: Offers quick reply chips to guide the conversation.
+This project demonstrates advanced web development capabilities through the integration of Google Gemini AI for intelligent prompt enhancement and real-time image generation. The application serves as both a marketing platform and an interactive showcase of AI-assisted design workflows.
 
-### 2. **AI Sketch-to-Render Playground**
-An interactive section where users can describe their dream space and instantly visualize it.
-- **Dual Output**: Generates a **conceptual sketch** (line art) and a **photorealistic render** side-by-side.
-- **AI Prompt Enhancement**: Uses Google Gemini to automatically refine and expand user prompts for better image results.
-- **Visual Feedback**: Displays the enhanced prompt to show users how AI interprets their ideas.
+**Client:** Maven Prime Solution  
+**Developer:** Adityo Nugroho  
+**Live Demo:** [View on Vercel](https://maven-prime-solution.vercel.app/)
 
-### 3. **Modern & Responsive UI**
-- **Dark & Gold Theme**: A premium, elegant aesthetic reflecting luxury design.
-- **Masonry Gallery**: A dynamic, responsive grid layout for showcasing portfolio projects.
-- **Performance Optimized**: Built with lightweight Alpine.js and Tailwind CSS (via CDN) for fast load times.
 
-## 🛠️ Tech Stack
+## Key Features
 
-- **Frontend**: HTML5, Tailwind CSS (CDN), Alpine.js
-- **AI Integration**: 
-  - **Google Gemini API** (Text & Prompt Enhancement)
-  - **Pollinations.ai** (Image Generation)
-- **Deployment**: GitHub Pages (Automated via GitHub Actions)
+### AI Design Agent
+An intelligent chat assistant powered by Google Gemini 2.5 Flash Lite that provides:
+- Contextual interior design consultations
+- Real-time prompt enhancement for better image generation
+- Dual-format output generating both sketch and photorealistic renders
+- Smart conversation flow with quick-reply suggestions
 
-## 📂 Project Structure
+### Interactive Sketch-to-Render Playground
+A dedicated workspace where users can:
+- Input natural language descriptions of interior spaces
+- Receive AI-enhanced, professional-grade prompts
+- Preview both conceptual sketches and photorealistic renders side-by-side
+- See how AI interprets and improves their creative vision
+
+### Responsive Modern UI
+- Dark and gold premium color scheme
+- Fully responsive design optimized for mobile and desktop
+- Smooth animations and transitions
+- Performance-optimized with minimal dependencies
+
+
+## Technical Architecture
+
+### Frontend Stack
+- **HTML5** - Semantic structure
+- **Tailwind CSS** - Utility-first styling via CDN
+- **Alpine.js** - Lightweight reactive framework
+- **Vanilla JavaScript** - Core application logic
+
+### Backend Services
+- **Vercel Serverless Functions** - Secure API key management
+- **Google Gemini API** (gemini-2.5-flash-lite) - Prompt enhancement
+- **Pollinations.ai** - Image generation service
+
+### Security Implementation
+- API keys stored securely in Vercel environment variables
+- Serverless function proxy prevents client-side key exposure
+- CORS properly configured for secure cross-origin requests
+
+
+## Project Structure
 
 ```
 maven-prime-solution/
-├── assets/             # Images and icons
+├── api/
+│   └── enhance.js          # Serverless function for Gemini API calls
+├── assets/                 # Images and static resources
 ├── css/
-│   └── styles.css      # Custom styles and animations
+│   └── styles.css          # Custom styles and animations
 ├── js/
-│   └── app.js          # Application logic (AI Agent + Playground)
-├── index.html          # Main entry point
-├── .github/workflows/  # GitHub Actions for Pages
-├── robots.txt          # SEO configuration
-├── sitemap.xml         # SEO configuration
-└── README.md           # This file
+│   └── app.js              # Alpine.js application logic
+├── index.html              # Main application entry point
+├── vercel.json             # Vercel deployment configuration
+├── robots.txt              # SEO configuration
+├── sitemap.xml             # SEO sitemap
+└── README.md               # Project documentation
 ```
 
-## 🚀 Setup & Deployment
+
+## Deployment
+
+### Prerequisites
+- Node.js (for local development)
+- Vercel account (free tier)
+- Google Gemini API key
+
+### Vercel Deployment Steps
+
+1. **Fork or Clone Repository**
+   ```bash
+   git clone https://github.com/your-username/maven-prime-solution.git
+   cd maven-prime-solution
+   ```
+
+2. **Install Vercel CLI** (optional for local testing)
+   ```bash
+   npm install -g vercel
+   ```
+
+3. **Deploy to Vercel**
+   - Import project in Vercel dashboard
+   - Connect your GitHub repository
+   - Configure environment variable: `GEMINI_API_KEY=your_api_key_here`
+   - Deploy automatically on every push to main branch
 
 ### Local Development
-1. Clone the repository.
-2. Open `index.html` in your browser.
-3. For the best experience, use a local server (e.g., Live Server in VS Code).
 
-### GitHub Pages Deployment
-1. Push the code to a GitHub repository.
-2. Go to **Settings > Secrets and variables > Actions**.
-3. Create a new repository secret named `GEMINI_API_KEY` with your Google Gemini API key.
-4. The included GitHub Action (`.github/workflows/deploy.yml`) will automatically build and deploy the site to GitHub Pages on every push to `main`.
-5. **Note**: Sign up for [Formspree](https://formspree.io/) and replace `YOUR_FORMSPREE_ID` in `index.html` to enable the contact form.
+```bash
+# Install dependencies
+npm install
 
-## 🤖 AI Configuration
+# Set up environment variable
+# Create .env file with: GEMINI_API_KEY=your_key
 
-The AI logic is centralized in `js/app.js`.
+# Run Vercel development server
+vercel dev
+```
 
-- **Prompt Enhancement**: The system uses Gemini to rewrite simple user inputs (e.g., "living room") into detailed, descriptive prompts for better image generation.
-- **Security**: The API key is injected securely during the build process via GitHub Secrets. Never commit your real API key to the repository.
 
-## 👥 Credits
+## Environment Variables
 
-- **Developer & AI Architect**: Adityo Nugroho
-- **Client**: Maven Prime Solution
-- **AI Architecture & Development**: Antigravity (Google DeepMind)
-- **AI Models**: Google Gemini 2.0 Flash, Pollinations.ai
-- **Assets**: Unsplash (Images), Heroicons (Icons)
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `GEMINI_API_KEY` | Google Gemini API key for prompt enhancement | Yes |
+
+
+## API Endpoints
+
+### POST /api/enhance
+Enhances user-provided prompts using Google Gemini AI.
+
+**Request Body:**
+```json
+{
+  "prompt": "modern living room"
+}
+```
+
+**Response:**
+```json
+{
+  "enhancedPrompt": "A contemporary living room featuring sleek furniture..."
+}
+```
+
+
+## Performance Optimization
+
+- CDN-hosted libraries for faster load times
+- Lazy loading for images
+- Minimal JavaScript bundle size
+- Serverless architecture for scalability
+
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+
+## Credits
+
+**Developer & AI Architect:** Adityo Nugroho  
+**Client:** Maven Prime Solution  
+**AI Services:** Google Gemini 2.5 Flash Lite, Pollinations.ai  
+**Assets:** Unsplash (placeholder images), Heroicons (SVG icons)
+
+
+## License
+
+This project is proprietary software developed for Maven Prime Solution.
+
+
+## Contact
+
+For inquiries about this project or collaboration opportunities:
+
+- **Developer**: Adityo Nugroho  
+- **Email**: adityo.nugroho.id@gmail.com  
+- **GitHub**: https://github.com/adityonugrohoid  
+- **LinkedIn**: https://linkedin.com/in/adityonugrohoid

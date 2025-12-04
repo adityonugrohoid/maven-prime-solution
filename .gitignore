@@ -1,5 +1,17 @@
-node_modules/
+# Vercel
+.vercel
+
+# Environment variables (if any local testing)
 .env
-package-lock.json
-/dist
-/build
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

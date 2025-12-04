@@ -6,7 +6,6 @@ document.addEventListener('alpine:init', () => {
         // Chat Bubble State
         isOpen: false,
         isLoading: false,
-        apiKey: 'AIzaSyBkGRgJWJeEdQ0fQi60QAJS6HK-9nNWDOU',
         userInput: '',
         messages: [
             {
@@ -86,67 +85,49 @@ document.addEventListener('alpine:init', () => {
             }
         },
 
-        // Enhance prompt using Gemini API
+        // Enhance prompt using Vercel serverless function (secure)
         async enhancePromptWithGemini(prompt) {
-            if (this.apiKey === 'YOUR_GEMINI_API_KEY') {
-                console.log('⚠️ Gemini API key not configured, using original prompt');
-                return prompt;
-            }
-
             try {
                 console.log('🤖 Using Gemini to enhance prompt...');
-                const response = await fetch(
-                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${this.apiKey}`,
-                    {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            contents: [{
-                                parts: [{
-                                    text: `Enhance this interior design prompt for image generation. Make it more detailed and vivid, but keep it concise (max 50 words): "${prompt}"`
-                                }]
-                            }]
-                        })
-                    }
-                );
+
+                // Call Vercel serverless function instead of direct API call
+                const response = await fetch('/api/enhance', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
 
                 const data = await response.json();
-                if (data.candidates && data.candidates[0]) {
-                    let enhancedPrompt = data.candidates[0].content.parts[0].text;
 
-                    // Clean up markdown formatting from Gemini's response
-                    enhancedPrompt = enhancedPrompt
-                        .replace(/\*\*Prompt:\*\*\s*/gi, '')  // Remove **Prompt:** prefix
-                        .replace(/^["']|["']$/g, '')          // Remove leading/trailing quotes
-                        .trim();
-
-                    console.log('✨ Enhanced prompt:', enhancedPrompt);
-                    return enhancedPrompt;
+                if (data.enhancedPrompt) {
+                    console.log('✨ Enhanced prompt:', data.enhancedPrompt);
+                    return data.enhancedPrompt;
                 }
+
+                throw new Error('No enhanced prompt in response');
             } catch (error) {
                 console.log('⚠️ Prompt enhancement failed, using original:', error);
+                return prompt;
             }
-
-            return prompt;
         },
 
-        // Generate image and return URL (for playground)
+        // Generate image using Pollinations.ai (free, no rate limits)
         async generateImageUrl(prompt, style) {
             const imagePrompt = style === 'sketch'
-                ? `A simple black and white architectural line sketch of ${prompt}, white background, high contrast`
-                : `A photorealistic 8k architectural render of ${prompt}, interior design, cinematic lighting, highly detailed`;
+                ? `A simple black and white architectural line sketch of ${prompt}, white background, high contrast, minimal details`
+                : `A photorealistic 8k architectural render of ${prompt}, interior design, cinematic lighting, highly detailed, professional photography`;
 
-            if (this.apiKey === 'YOUR_GEMINI_API_KEY') {
-                // Fallback to Pollinations.ai
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                const encodedPrompt = encodeURIComponent(imagePrompt);
-                return `https://image.pollinations.ai/prompt/${encodedPrompt}?width=${style === 'sketch' ? 512 : 1024}&height=${style === 'sketch' ? 512 : 1024}&nologo=true`;
-            }
+            console.log(`🎨 Generating ${style} with Pollinations.ai...`);
 
-            // Real API implementation would go here
-            // For demo, return pollinations URL
+            // Small delay for better UX
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
             const encodedPrompt = encodeURIComponent(imagePrompt);
-            return `https://image.pollinations.ai/prompt/${encodedPrompt}?width=1024&height=1024&nologo=true`;
+            return `https://image.pollinations.ai/prompt/${encodedPrompt}?width=${style === 'sketch' ? 512 : 1024}&height=${style === 'sketch' ? 512 : 1024}&nologo=true`;
         },
 
         // Generate image for chat (adds to messages)
