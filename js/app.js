@@ -6,7 +6,7 @@ document.addEventListener('alpine:init', () => {
         // Chat Bubble State
         isOpen: false,
         isLoading: false,
-        apiKey: 'YOUR_GEMINI_API_KEY',
+        apiKey: 'AIzaSyBkGRgJWJeEdQ0fQi60QAJS6HK-9nNWDOU',
         userInput: '',
         messages: [
             {
@@ -21,6 +21,7 @@ document.addEventListener('alpine:init', () => {
         playgroundLoading: false,
         playgroundSketch: null,
         playgroundRender: null,
+        playgroundEnhancedPrompt: null,
 
         toggleChat() {
             this.isOpen = !this.isOpen;
@@ -54,14 +55,19 @@ document.addEventListener('alpine:init', () => {
             this.playgroundLoading = true;
             this.playgroundSketch = null;
             this.playgroundRender = null;
+            this.playgroundEnhancedPrompt = null;
 
             try {
-                // Generate sketch
-                const sketchUrl = await this.generateImageUrl(prompt, 'sketch');
+                // Enhance prompt with Gemini
+                const enhancedPrompt = await this.enhancePromptWithGemini(prompt);
+                this.playgroundEnhancedPrompt = enhancedPrompt;
+
+                // Generate sketch with enhanced prompt
+                const sketchUrl = await this.generateImageUrl(enhancedPrompt, 'sketch');
                 this.playgroundSketch = sketchUrl;
 
-                // Generate render
-                const renderUrl = await this.generateImageUrl(prompt, 'photorealistic');
+                // Generate render with enhanced prompt
+                const renderUrl = await this.generateImageUrl(enhancedPrompt, 'photorealistic');
                 this.playgroundRender = renderUrl;
             } catch (error) {
                 console.error('Playground generation failed:', error);
@@ -69,6 +75,43 @@ document.addEventListener('alpine:init', () => {
             } finally {
                 this.playgroundLoading = false;
             }
+        },
+
+        // Enhance prompt using Gemini API
+        async enhancePromptWithGemini(prompt) {
+            if (this.apiKey === 'YOUR_GEMINI_API_KEY') {
+                console.log('⚠️ Gemini API key not configured, using original prompt');
+                return prompt;
+            }
+
+            try {
+                console.log('🤖 Using Gemini to enhance prompt...');
+                const response = await fetch(
+                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${this.apiKey}`,
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{
+                                parts: [{
+                                    text: `Enhance this interior design prompt for image generation. Make it more detailed and vivid, but keep it concise (max 50 words): "${prompt}"`
+                                }]
+                            }]
+                        })
+                    }
+                );
+
+                const data = await response.json();
+                if (data.candidates && data.candidates[0]) {
+                    const enhancedPrompt = data.candidates[0].content.parts[0].text;
+                    console.log('✨ Enhanced prompt:', enhancedPrompt);
+                    return enhancedPrompt;
+                }
+            } catch (error) {
+                console.log('⚠️ Prompt enhancement failed, using original:', error);
+            }
+
+            return prompt;
         },
 
         // Generate image and return URL (for playground)
