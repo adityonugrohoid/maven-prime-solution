@@ -1,18 +1,3 @@
-# Maven Prime Solution - Portfolio Website
-
-A production-ready portfolio website for **Maven Prime Solution**, an interior design studio in Surabaya, Indonesia. Built with HTML5, Tailwind CSS, and Alpine.js.
-
-## Features
-
-- **Modern Minimalist Design**: Soft beige and teal color palette (`#F4F1DE`, `#2A9D8F`).
-- **Fully Responsive**: Mobile-first approach using Tailwind CSS.
-- **AI Design Agent**: Integrated floating chat bubble powered by Google Gemini (simulated/ready for API key) that generates architectural sketches and photorealistic renders.
-- **SEO Optimized**:
-    - Meta tags for social media (Open Graph, Twitter Cards).
-    - JSON-LD LocalBusiness Schema for rich search results.
-    - Semantic HTML5 structure.
-- **Performance**:
-    - Lazy loading for images.
     - Minimal dependencies (Alpine.js + Tailwind CDN).
     - No build step required.
 
