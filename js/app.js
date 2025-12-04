@@ -37,8 +37,17 @@ document.addEventListener('alpine:init', () => {
             this.isLoading = true;
 
             try {
-                await this.generateImage(prompt, 'sketch');
-                await this.generateImage(prompt, 'photorealistic');
+                // Enhance prompt with Gemini
+                const enhancedPrompt = await this.enhancePromptWithGemini(prompt);
+
+                // Show enhanced prompt if it was actually enhanced
+                if (enhancedPrompt !== prompt) {
+                    this.addMessage('agent', 'text', `✨ Enhanced: "${enhancedPrompt}"`);
+                }
+
+                // Generate images with enhanced prompt
+                await this.generateImage(enhancedPrompt, 'sketch');
+                await this.generateImage(enhancedPrompt, 'photorealistic');
             } catch (error) {
                 console.error('Generation failed:', error);
                 this.addMessage('agent', 'text', 'Sorry, I encountered an error generating your design. Please check your API key and try again.');
@@ -87,7 +96,7 @@ document.addEventListener('alpine:init', () => {
             try {
                 console.log('🤖 Using Gemini to enhance prompt...');
                 const response = await fetch(
-                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${this.apiKey}`,
+                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${this.apiKey}`,
                     {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -103,7 +112,14 @@ document.addEventListener('alpine:init', () => {
 
                 const data = await response.json();
                 if (data.candidates && data.candidates[0]) {
-                    const enhancedPrompt = data.candidates[0].content.parts[0].text;
+                    let enhancedPrompt = data.candidates[0].content.parts[0].text;
+
+                    // Clean up markdown formatting from Gemini's response
+                    enhancedPrompt = enhancedPrompt
+                        .replace(/\*\*Prompt:\*\*\s*/gi, '')  // Remove **Prompt:** prefix
+                        .replace(/^["']|["']$/g, '')          // Remove leading/trailing quotes
+                        .trim();
+
                     console.log('✨ Enhanced prompt:', enhancedPrompt);
                     return enhancedPrompt;
                 }
