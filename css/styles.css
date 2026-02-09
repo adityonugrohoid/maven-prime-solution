@@ -71,3 +71,10 @@ html {
 [x-cloak] {
     display: none !important;
 }
+
+/* Circular Logo Styles */
+.logo-circle {
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
