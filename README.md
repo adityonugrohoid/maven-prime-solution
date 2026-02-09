@@ -1,11 +1,11 @@
-# Maven Prime Solution - AI-Enhanced Interior Design Portfolio
+# Maven Prime Solution - Interior Design Portfolio
 
-A modern, production-ready portfolio website showcasing AI-powered interior design services. Built for Maven Prime Solution, an interior design studio based in Surabaya, Indonesia.
+A modern, production-ready portfolio website showcasing premium interior design services and 3D render projects. Built for Maven Prime Solution, an interior design studio based in Surabaya, Indonesia.
 
 
 ## Project Overview
 
-This project demonstrates advanced web development capabilities through the integration of Google Gemini AI for intelligent prompt enhancement and real-time image generation. The application serves as both a marketing platform and an interactive showcase of AI-assisted design workflows.
+This project is a professional portfolio website that showcases Maven Prime Solution's interior design expertise through a curated gallery of 3D render projects. The application features a clean, modern interface with a premium dark and gold color scheme, highlighting the studio's work across different space types.
 
 **Client:** Maven Prime Solution  
 **Developer:** Adityo Nugroho  
@@ -14,25 +14,23 @@ This project demonstrates advanced web development capabilities through the inte
 
 ## Key Features
 
-### AI Design Agent
-An intelligent chat assistant powered by Google Gemini 2.5 Flash Lite that provides:
-- Contextual interior design consultations
-- Real-time prompt enhancement for better image generation
-- Dual-format output generating both sketch and photorealistic renders
-- Smart conversation flow with quick-reply suggestions
+### Portfolio Showcase
+- Curated gallery of 3D render projects organized by space type
+- Four categories: Living Rooms, Bedrooms, Bathrooms, and Outdoor Spaces
+- Lightbox image viewer with zoom functionality
+- Descriptive render terms for each project (Modern, Minimalist, Luxury, Cozy, etc.)
 
-### Interactive Sketch-to-Render Playground
-A dedicated workspace where users can:
-- Input natural language descriptions of interior spaces
-- Receive AI-enhanced, professional-grade prompts
-- Preview both conceptual sketches and photorealistic renders side-by-side
-- See how AI interprets and improves their creative vision
+### Services Section
+- Highlighted 3D Rendering service with hero image
+- Commercial Spaces and Residential Design services
+- Visual service cards with hero images
 
 ### Responsive Modern UI
 - Dark and gold premium color scheme
 - Fully responsive design optimized for mobile and desktop
 - Smooth animations and transitions
 - Performance-optimized with minimal dependencies
+- Interactive lightbox for image viewing
 
 
 ## Technical Architecture
@@ -43,28 +41,26 @@ A dedicated workspace where users can:
 - **Alpine.js** - Lightweight reactive framework
 - **Vanilla JavaScript** - Core application logic
 
-### Backend Services
-- **Vercel Serverless Functions** - Secure API key management
-- **Google Gemini API** (gemini-2.5-flash-lite) - Prompt enhancement
-- **Pollinations.ai** - Image generation service
-
-### Security Implementation
-- API keys stored securely in Vercel environment variables
-- Serverless function proxy prevents client-side key exposure
-- CORS properly configured for secure cross-origin requests
+### Static Site Architecture
+- Pure static HTML/CSS/JavaScript
+- No backend services or API dependencies
+- Fast loading times with CDN delivery
 
 
 ## Project Structure
 
 ```
 maven-prime-solution/
-├── api/
-│   └── enhance.js          # Serverless function for Gemini API calls
-├── assets/                 # Images and static resources
+├── assets/
+│   ├── render_works/       # Portfolio render images
+│   │   ├── hero_*.jpg/png  # Service hero images
+│   │   └── render_*.png    # Portfolio render images
+│   ├── favicon.png
+│   └── apple-touch-icon.png
 ├── css/
 │   └── styles.css          # Custom styles and animations
 ├── js/
-│   └── app.js              # Alpine.js application logic
+│   └── app.js              # Alpine.js application logic (lightbox, mobile menu)
 ├── index.html              # Main application entry point
 ├── vercel.json             # Vercel deployment configuration
 ├── robots.txt              # SEO configuration
@@ -76,9 +72,7 @@ maven-prime-solution/
 ## Deployment
 
 ### Prerequisites
-- Node.js (for local development)
-- Vercel account (free tier)
-- Google Gemini API key
+- Vercel account (free tier) or any static hosting service
 
 ### Vercel Deployment Steps
 
@@ -88,64 +82,50 @@ maven-prime-solution/
    cd maven-prime-solution
    ```
 
-2. **Install Vercel CLI** (optional for local testing)
-   ```bash
-   npm install -g vercel
-   ```
-
-3. **Deploy to Vercel**
+2. **Deploy to Vercel**
    - Import project in Vercel dashboard
    - Connect your GitHub repository
-   - Configure environment variable: `GEMINI_API_KEY=your_api_key_here`
    - Deploy automatically on every push to main branch
+   - No environment variables or configuration needed
+
+The `vercel.json` configuration includes:
+- Clean URLs (no .html extension)
+- Trailing slash handling
+
+### Alternative Hosting Options
+
+This is a pure static site and can be deployed to:
+- **Vercel** (recommended)
+- **GitHub Pages**
+- **Netlify**
+- **Cloudflare Pages**
+- Any static hosting service
 
 ### Local Development
 
+Simply open `index.html` in a web browser, or use a local server:
+
 ```bash
-# Install dependencies
-npm install
+# Using Python
+python -m http.server 8000
 
-# Set up environment variable
-# Create .env file with: GEMINI_API_KEY=your_key
+# Using Node.js (http-server)
+npx http-server
 
-# Run Vercel development server
-vercel dev
+# Using PHP
+php -S localhost:8000
 ```
 
 
-## Environment Variables
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `GEMINI_API_KEY` | Google Gemini API key for prompt enhancement | Yes |
-
-
-## API Endpoints
-
-### POST /api/enhance
-Enhances user-provided prompts using Google Gemini AI.
-
-**Request Body:**
-```json
-{
-  "prompt": "modern living room"
-}
-```
-
-**Response:**
-```json
-{
-  "enhancedPrompt": "A contemporary living room featuring sleek furniture..."
-}
-```
 
 
 ## Performance Optimization
 
-- CDN-hosted libraries for faster load times
-- Lazy loading for images
+- CDN-hosted libraries (Tailwind CSS, Alpine.js) for faster load times
+- Lazy loading for all portfolio images
 - Minimal JavaScript bundle size
-- Serverless architecture for scalability
+- Optimized image assets
+- Static site generation for fast page loads
 
 
 ## Browser Support
@@ -158,10 +138,9 @@ Enhances user-provided prompts using Google Gemini AI.
 
 ## Credits
 
-**Developer & AI Architect:** Adityo Nugroho  
+**Developer:** Adityo Nugroho  
 **Client:** Maven Prime Solution  
-**AI Services:** Google Gemini 2.5 Flash Lite, Pollinations.ai  
-**Assets:** Unsplash (placeholder images), Heroicons (SVG icons)
+**Assets:** All render images are property of Maven Prime Solution
 
 
 ## License

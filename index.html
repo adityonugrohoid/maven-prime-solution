@@ -16,7 +16,7 @@
     <meta property="og:url" content="https://adityonugrohoid.github.io/maven-prime-solution/">
     <meta property="og:title" content="Maven Prime Solution | Interior Design Studio Surabaya">
     <meta property="og:description"
-        content="Elevate your space with Maven Prime Solution. Premium interior design services in Surabaya. Try our AI Design Agent today.">
+        content="Elevate your space with Maven Prime Solution. Premium interior design services in Surabaya.">
     <meta property="og:image" content="https://adityonugrohoid.github.io/maven-prime-solution/assets/og-image.jpg">
 
     <!-- Twitter -->
@@ -24,7 +24,7 @@
     <meta property="twitter:url" content="https://adityonugrohoid.github.io/maven-prime-solution/">
     <meta property="twitter:title" content="Maven Prime Solution | Interior Design Studio Surabaya">
     <meta property="twitter:description"
-        content="Elevate your space with Maven Prime Solution. Premium interior design services in Surabaya. Try our AI Design Agent today.">
+        content="Elevate your space with Maven Prime Solution. Premium interior design services in Surabaya.">
     <meta property="twitter:image" content="https://adityonugrohoid.github.io/maven-prime-solution/assets/og-image.jpg">
 
     <!-- Favicon -->
@@ -121,7 +121,6 @@
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8">
                 <a href="#services" class="text-light hover:text-primary transition">Services</a>
-                <a href="#ai-playground" class="text-light hover:text-primary transition">AI Playground</a>
                 <a href="#portfolio" class="text-light hover:text-primary transition">Portfolio</a>
                 <a href="#about" class="text-light hover:text-primary transition">About</a>
                 <a href="#contact"
@@ -144,8 +143,6 @@
             <div class="flex flex-col p-6 space-y-4">
                 <a href="#services" @click="mobileMenuOpen = false"
                     class="text-lg text-light hover:text-primary">Services</a>
-                <a href="#ai-playground" @click="mobileMenuOpen = false"
-                    class="text-lg text-light hover:text-primary">AI Playground</a>
                 <a href="#portfolio" @click="mobileMenuOpen = false"
                     class="text-lg text-light hover:text-primary">Portfolio</a>
                 <a href="#about" @click="mobileMenuOpen = false" class="text-lg text-light hover:text-primary">About</a>
@@ -156,14 +153,12 @@
 
     <!-- Hero Section -->
     <header class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Google Map Background Overlay -->
-        <div class="absolute inset-0 z-0 opacity-40 grayscale">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.692033666666!2d112.7934113147749!3d-7.2949009947348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa6870233333%3A0x1234567890abcdef!2sJl.%20Sukolilo%20Sejahtera%20I%20No.28%2C%20Keputih%2C%20Kec.%20Sukolilo%2C%20Surabaya%2C%20Jawa%20Timur%2060111!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid"
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 z-0 opacity-100 grayscale">
+            <img src="assets/background_overlay.png" alt="Background Overlay" 
+                class="w-full h-full object-cover" loading="lazy">
         </div>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-secondary z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/100 via-black/50 to-secondary z-0"></div>
 
         <div class="relative z-10 text-center px-6 max-w-4xl mt-16">
             <h1 class="text-5xl md:text-7xl font-serif font-bold text-primary mb-6 leading-tight">
@@ -193,167 +188,107 @@
                 <div class="w-24 h-1 bg-primary mx-auto"></div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-10">
-                <!-- Service 1 -->
+            <div class="space-y-10">
+                <!-- First Row: 3D Rendering (Highlighted - Bigger Box) -->
                 <div
-                    class="p-8 bg-secondary rounded-2xl hover:shadow-xl transition duration-300 group border border-white/5">
+                    class="p-8 md:p-12 bg-secondary rounded-2xl hover:shadow-xl transition duration-300 group border-2 border-primary/50 relative overflow-hidden">
+                    <!-- Hero Image Background -->
+                    <div class="absolute inset-0 opacity-10">
+                        <img src="assets/render_works/hero_3d_rendering_service.png" alt="3D Rendering Service" 
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="relative z-10">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <!-- Left: Hero Image -->
+                            <div class="rounded-xl overflow-hidden shadow-2xl">
+                                <img src="assets/render_works/hero_3d_rendering_service.png" alt="3D Rendering Service" 
+                                    class="w-full h-80 md:h-96 object-cover transform group-hover:scale-105 transition duration-700">
+                            </div>
+                            <!-- Right: Content -->
+                            <div>
+                                <div
+                                    class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition border border-primary/30">
+                                    <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4">3D Rendering</h3>
+                                <p class="text-gray-300 text-lg leading-relaxed">Photorealistic 3D visualizations to help you see the final result before
+                                    construction begins. Precision in every detail.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row: Commercial Spaces and Residential Design -->
+                <div class="grid md:grid-cols-2 gap-10">
+                    <!-- Commercial Spaces -->
                     <div
-                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition border border-primary/30">
-                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
-                            </path>
-                        </svg>
+                        class="p-8 bg-secondary rounded-2xl hover:shadow-xl transition duration-300 group border-2 border-primary/50 relative overflow-hidden">
+                        <!-- Hero Image Background -->
+                        <div class="absolute inset-0 opacity-10">
+                            <img src="assets/render_works/hero_commercial_spaces_service.jpg" alt="Commercial Spaces Service" 
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10">
+                            <div class="grid gap-6 items-center">
+                                <!-- Hero Image -->
+                                <div class="rounded-xl overflow-hidden shadow-2xl">
+                                    <img src="assets/render_works/hero_commercial_spaces_service.jpg" alt="Commercial Spaces Service" 
+                                        class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-700">
+                                </div>
+                                <!-- Content -->
+                                <div>
+                                    <div
+                                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition border border-primary/30">
+                                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-primary mb-4">Commercial Spaces</h3>
+                                    <p class="text-gray-300 leading-relaxed">Functional and inspiring designs for offices, retail stores, and cafes that
+                                        enhance productivity and customer experience.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-4">Residential Design</h3>
-                    <p class="text-gray-400">Transforming houses into homes. From cozy apartments to luxury estates, we
-                        craft living spaces that reflect your personality.</p>
-                </div>
 
-                <!-- Service 2 -->
-                <div
-                    class="p-8 bg-secondary rounded-2xl hover:shadow-xl transition duration-300 group border border-white/5">
+                    <!-- Residential Design -->
                     <div
-                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition border border-primary/30">
-                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-primary mb-4">Commercial Spaces</h3>
-                    <p class="text-gray-400">Functional and inspiring designs for offices, retail stores, and cafes that
-                        enhance productivity and customer experience.</p>
-                </div>
-
-                <!-- Service 3 -->
-                <div
-                    class="p-8 bg-secondary rounded-2xl hover:shadow-xl transition duration-300 group border border-white/5">
-                    <div
-                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition border border-primary/30">
-                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-primary mb-4">3D Rendering</h3>
-                    <p class="text-gray-400">Photorealistic 3D visualizations to help you see the final result before
-                        construction begins. Precision in every detail.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Playground Section -->
-    <section id="ai-playground" class="py-20 bg-secondary relative overflow-hidden">
-        <!-- Background decorative elements -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <div class="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
-                    <span class="text-primary font-bold text-sm">✨ AI-Powered Design</span>
-                </div>
-                <h2 class="text-4xl font-serif font-bold text-primary mb-4">
-                    Sketch & Render Playground
-                </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">
-                    Experience the power of AI. Describe your dream space and watch as our AI generates
-                    both a conceptual sketch and a photorealistic render instantly.
-                </p>
-            </div>
-
-            <!-- Input Area -->
-            <div class="max-w-4xl mx-auto mb-12">
-                <div class="bg-neutral rounded-2xl p-8 border border-white/10">
-                    <label class="block text-primary font-bold mb-3">Describe Your Space</label>
-                    <input type="text" x-model="playgroundInput"
-                        placeholder="e.g., Modern minimalist living room in Surabaya with large windows..."
-                        class="w-full px-6 py-4 bg-secondary rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary/50 placeholder-gray-500 border border-white/10 mb-4">
-                    <button @click="generatePlaygroundDesign" :disabled="playgroundLoading || !playgroundInput.trim()"
-                        class="w-full md:w-auto px-8 py-4 bg-primary text-secondary font-bold rounded-xl hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed transition shadow-lg">
-                        <span x-show="!playgroundLoading">Generate</span>
-                        <span x-show="playgroundLoading">Generating...</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Enhanced Prompt Display -->
-            <div x-show="playgroundEnhancedPrompt" x-transition class="max-w-4xl mx-auto mb-8">
-                <div class="bg-neutral/50 rounded-xl p-6 border border-primary/20">
-                    <div class="flex items-start gap-3">
-                        <div class="flex-shrink-0">
-                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                                </path>
-                            </svg>
+                        class="p-8 bg-secondary rounded-2xl hover:shadow-xl transition duration-300 group border-2 border-primary/50 relative overflow-hidden">
+                        <!-- Hero Image Background -->
+                        <div class="absolute inset-0 opacity-10">
+                            <img src="assets/render_works/hero_residential_design_service.jpg" alt="Residential Design Service" 
+                                class="w-full h-full object-cover">
                         </div>
-                        <div class="flex-1">
-                            <h4 class="text-primary font-bold mb-2">✨ AI-Enhanced Prompt</h4>
-                            <p class="text-gray-300 text-sm italic leading-relaxed" x-text="playgroundEnhancedPrompt">
-                            </p>
-                            <p class="text-gray-500 text-xs mt-2">Enhanced by Google Gemini for better results</p>
+                        <div class="relative z-10">
+                            <div class="grid gap-6 items-center">
+                                <!-- Hero Image -->
+                                <div class="rounded-xl overflow-hidden shadow-2xl">
+                                    <img src="assets/render_works/hero_residential_design_service.jpg" alt="Residential Design Service" 
+                                        class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-700">
+                                </div>
+                                <!-- Content -->
+                                <div>
+                                    <div
+                                        class="w-16 h-16 bg-neutral rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition border border-primary/30">
+                                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-primary mb-4">Residential Design</h3>
+                                    <p class="text-gray-300 leading-relaxed">Transforming houses into homes. From cozy apartments to luxury estates, we
+                                        craft living spaces that reflect your personality.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Results Display -->
-            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <!-- Sketch Result -->
-                <div class="bg-neutral rounded-2xl overflow-hidden border border-white/10">
-                    <div class="bg-secondary border-b border-white/10 p-4">
-                        <h3 class="text-primary font-bold">✏️ Conceptual Sketch</h3>
-                        <p class="text-gray-400 text-sm">Black & white architectural line drawing</p>
-                    </div>
-                    <div class="aspect-square bg-secondary flex items-center justify-center p-8">
-                        <div x-show="!playgroundSketch" class="text-center text-gray-500">
-                            <svg class="w-16 h-16 mx-auto mb-3 opacity-30" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                                </path>
-                            </svg>
-                            <p class="text-sm">Your sketch will appear here</p>
-                        </div>
-                        <img x-show="playgroundSketch" :src="playgroundSketch" alt="AI Generated Sketch"
-                            class="w-full h-full object-cover rounded-lg">
-                    </div>
-                </div>
-
-                <!-- Render Result -->
-                <div class="bg-neutral rounded-2xl overflow-hidden border border-white/10">
-                    <div class="bg-secondary border-b border-white/10 p-4">
-                        <h3 class="text-primary font-bold">🎨 Photorealistic Render</h3>
-                        <p class="text-gray-400 text-sm">8K quality architectural visualization</p>
-                    </div>
-                    <div class="aspect-square bg-secondary flex items-center justify-center p-8">
-                        <div x-show="!playgroundRender" class="text-center text-gray-500">
-                            <svg class="w-16 h-16 mx-auto mb-3 opacity-30" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                                </path>
-                            </svg>
-                            <p class="text-sm">Your render will appear here</p>
-                        </div>
-                        <img x-show="playgroundRender" :src="playgroundRender" alt="AI Generated Render"
-                            class="w-full h-full object-cover rounded-lg">
-                    </div>
-                </div>
-            </div>
-
-            <!--Loading Indicator -->
-            <div x-show="playgroundLoading" class="text-center mt-8">
-                <div class="inline-flex items-center gap-3 bg-neutral px-6 py-3 rounded-full border border-primary/30">
-                    <div class="flex space-x-1">
-                        <div class="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
-                        <div class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-                        <div class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
-                    </div>
-                    <span class="text-gray-300 text-sm">AI is creating your designs...</span>
                 </div>
             </div>
         </div>
@@ -364,33 +299,163 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-serif font-bold text-primary mb-4">Selected Works</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">A curation of our finest interior design projects across
-                    Surabaya.</p>
+                <p class="text-gray-400 max-w-2xl mx-auto">A showcase of our finest 3D render design projects.</p>
             </div>
 
-            <!-- Masonry Grid -->
-            <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                <!-- Placeholder Images (Using Unsplash Source for Demo) -->
-                <template x-for="i in 12">
-                    <div
-                        class="break-inside-avoid rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group relative">
-                        <img :src="`https://picsum.photos/800/${[600, 800, 1000][i % 3]}?random=${i}`"
-                            alt="Interior Design Project"
-                            class="w-full h-auto transform group-hover:scale-105 transition duration-700"
-                            loading="lazy">
-                        <div
-                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                            <span class="text-white font-serif text-xl border-b-2 border-primary pb-1">View
-                                Project</span>
+            <!-- Living Room Section -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-serif font-bold text-primary mb-6">Modern • Minimalist • Luxury • Cozy</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_living_room_01.png', 'Modern Living Room Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_living_room_01.png" alt="Modern Living Room Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
                         </div>
                     </div>
-                </template>
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_living_room_02.png', 'Minimalist Living Room Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_living_room_02.png" alt="Minimalist Living Room Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_living_room_03.png', 'Luxury Living Room Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_living_room_03.png" alt="Luxury Living Room Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_living_room_04.png', 'Cozy Living Room Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_living_room_04.png" alt="Cozy Living Room Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="text-center mt-12">
-                <button
-                    class="px-8 py-3 border border-primary text-primary rounded-full hover:bg-primary hover:text-secondary transition font-bold">Load
-                    More</button>
+            <!-- Bedroom Section -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-serif font-bold text-primary mb-6">Serene • Opulent • Elegant • Tranquil</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_bed_room_01.png', 'Serene Bedroom Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_bed_room_01.png" alt="Serene Bedroom Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_bed_room_02.png', 'Opulent Bedroom Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_bed_room_02.png" alt="Opulent Bedroom Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_bed_room_03.png', 'Elegant Bedroom Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_bed_room_03.png" alt="Elegant Bedroom Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_bed_room_04.png', 'Tranquil Bedroom Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_bed_room_04.png" alt="Tranquil Bedroom Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bathroom Section -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-serif font-bold text-primary mb-6">Spa-like • Premium • Sleek • Refined</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_bath_room_01.png', 'Spa-like Bathroom Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_bath_room_01.png" alt="Spa-like Bathroom Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_bath_room_02.png', 'Premium Bathroom Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_bath_room_02.png" alt="Premium Bathroom Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_bath_room_03.png', 'Sleek Bathroom Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_bath_room_03.png" alt="Sleek Bathroom Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_bath_room_04.png', 'Refined Bathroom Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_bath_room_04.png" alt="Refined Bathroom Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outdoor Section -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-serif font-bold text-primary mb-6">Tropical • Resort-style • Zen • Contemporary</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_outdoor_01.png', 'Tropical Outdoor Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_outdoor_01.png" alt="Tropical Outdoor Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_outdoor_02.png', 'Resort-style Outdoor Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_outdoor_02.png" alt="Resort-style Outdoor Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_outdoor_03.png', 'Zen Outdoor Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_outdoor_03.png" alt="Zen Outdoor Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 group cursor-pointer" @click="openLightbox('assets/render_works/render_outdoor_04.png', 'Contemporary Outdoor Render')">
+                        <div class="relative">
+                            <img src="assets/render_works/render_outdoor_04.png" alt="Contemporary Outdoor Render" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="text-white font-serif text-sm border-b-2 border-primary pb-1">Click to Zoom</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -486,102 +551,24 @@
         </div>
     </footer>
 
-    <!-- AI Design Agent (Floating) -->
-    <div x-data="designAgent" class="fixed bottom-6 right-6 z-50 flex flex-col items-end" x-cloak>
-
-        <!-- Chat Window -->
-        <div x-show="isOpen" x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 translate-y-10 scale-95"
-            x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-            x-transition:leave="transition ease-in duration-200"
-            x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-            x-transition:leave-end="opacity-0 translate-y-10 scale-95"
-            class="bg-secondary rounded-2xl shadow-2xl w-80 md:w-96 mb-4 overflow-hidden border border-white/10 flex flex-col max-h-[600px]">
-
-            <!-- Header -->
-            <div class="bg-gradient-to-r from-primary to-secondary p-4 flex justify-between items-center text-white">
-                <div class="flex items-center gap-2">
-                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <h3 class="font-bold">AI Design Agent</h3>
-                </div>
-                <button @click="toggleChat" class="text-white/80 hover:text-white">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                        </path>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Body -->
-            <div id="chat-body" class="flex-1 p-4 overflow-y-auto bg-neutral space-y-4 min-h-[300px]">
-                <template x-for="(msg, index) in messages" :key="index">
-                    <div :class="msg.role === 'user' ? 'flex justify-end' : 'flex justify-start'">
-                        <div :class="msg.role === 'user' ? 'bg-primary text-secondary font-bold rounded-br-none' : 'bg-secondary border border-white/10 text-gray-200 rounded-bl-none'"
-                            class="max-w-[85%] p-3 rounded-2xl shadow-sm text-sm">
-
-                            <!-- Text Content -->
-                            <p x-show="msg.type === 'text'" x-text="msg.content"></p>
-
-                            <!-- Image Content -->
-                            <div x-show="msg.type === 'image'" class="mt-2">
-                                <img :src="msg.content" class="rounded-lg w-full h-auto border border-gray-100"
-                                    alt="Generated Design">
-                            </div>
-                        </div>
-                    </div>
-                </template>
-
-                <!-- Loading Indicator -->
-                <div x-show="isLoading" class="flex justify-start">
-                    <div class="bg-secondary border border-white/10 p-3 rounded-2xl rounded-bl-none shadow-sm">
-                        <div class="flex space-x-1">
-                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s">
-                            </div>
-                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.4s">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Input Area -->
-            <div class="p-4 bg-secondary border-t border-white/10">
-                <div class="flex gap-2">
-                    <input type="text" x-model="userInput" @keydown.enter="sendMessage"
-                        placeholder="Describe your dream room..."
-                        class="flex-1 px-4 py-2 bg-neutral rounded-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-primary/50 placeholder-gray-500">
-                    <button @click="sendMessage" :disabled="isLoading || !userInput.trim()"
-                        class="p-2 bg-primary text-secondary rounded-full hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed transition">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div class="text-xs text-center text-gray-400 mt-2">Powered by Google Gemini 2.5</div>
-            </div>
+    <!-- Lightbox Modal -->
+    <div x-show="lightboxOpen" x-cloak @click.self="closeLightbox" @keydown.escape.window="closeLightbox"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 cursor-pointer">
+        <div class="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center">
+            <img :src="lightboxImage" :alt="lightboxAlt"
+                class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                @click.stop>
+            <button @click="closeLightbox"
+                class="absolute top-4 right-4 text-white hover:text-primary transition text-4xl font-bold bg-black/50 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/70">
+                &times;
+            </button>
         </div>
-
-        <!-- Toggle Button -->
-        <button @click="toggleChat"
-            class="w-16 h-16 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition duration-300 animate-float group relative">
-            <span x-show="!isOpen">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z">
-                    </path>
-                </svg>
-            </span>
-            <span x-show="isOpen">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </span>
-
-            <!-- Notification Badge -->
-            <span class="absolute top-0 right-0 w-4 h-4 bg-red-500 rounded-full border-2 border-white"></span>
-        </button>
     </div>
 
     <!-- Scripts -->
