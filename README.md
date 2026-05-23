@@ -2,10 +2,10 @@
 
 # Maven Prime Solution
 
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26.svg)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CDN-38bdf8.svg)](https://tailwindcss.com/)
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-lightgrey.svg)](#license)
-[![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel)](https://maven-prime-solution.vercel.app/)
+[![Vercel](https://img.shields.io/badge/Deployed-Vercel-black.svg)](https://maven-prime-solution.vercel.app/)
 
 **Portfolio website for Maven Prime Solution, an interior design studio based in Surabaya**
 
